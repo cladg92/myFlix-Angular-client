@@ -9,8 +9,8 @@
     Profile
   </button>
 </mat-toolbar>
-<div style="display: flex">
-  <mat-card *ngFor="let movie of movies; let i = index">
+<div class="flex-container">
+  <mat-card *ngFor="let movie of movies; let i = index" class="flex-item">
     <mat-card-header>
       <mat-card-title>{{ movie.Title }}</mat-card-title>
       <mat-card-subtitle

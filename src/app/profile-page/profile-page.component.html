@@ -1,14 +1,13 @@
 <div class="user-info">
   <div>Username: {{ username }}</div>
   <div>Email: {{ email }}</div>
+  <div>Birthday: {{ birthday }}</div>
 </div>
-<div class="update-info">
-  <h1>Update profile</h1>
-</div>
+<button (click)="openUpdateDialog()">Update</button>
 <div class="favorite-movies">
   <h1>My Favorite Movies</h1>
-  <div style="display: flex">
-    <mat-card *ngFor="let movie of favMovies; let i = index">
+  <div class="flex-container">
+    <mat-card *ngFor="let movie of favMovies; let i = index" class="flex-item">
       <mat-card-header>
         <mat-card-title>{{ movie.Title }}</mat-card-title>
         <mat-card-subtitle

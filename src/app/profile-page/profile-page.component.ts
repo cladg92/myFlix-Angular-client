@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
+import { UpdatePageComponent } from '../update-page/update-page.component';
+
 // This import brings in the API calls we created in 6.2
 import { FetchApiDataService } from '../fetch-api-data.service';
+
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-profile-page',
@@ -12,7 +16,11 @@ export class ProfilePageComponent implements OnInit {
   favMovies: any[] = [];
   username: any;
   email: any;
-  constructor(public fetchApiData: FetchApiDataService) {}
+  birthday: any;
+  constructor(
+    public fetchApiData: FetchApiDataService,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.getUserInfo();
@@ -24,7 +32,16 @@ export class ProfilePageComponent implements OnInit {
       this.favMovies = resp.FavoriteMovies;
       this.username = resp.Username;
       this.email = resp.Email;
-      return this.favMovies, this.email, this.username;
+      this.birthday = resp.BirthDate;
+      return this.favMovies, this.email, this.username, this.birthday;
+    });
+  }
+
+  // create function to get update dialog
+  openUpdateDialog(): void {
+    this.dialog.open(UpdatePageComponent, {
+      // Assigning the dialog a width
+      width: '500px',
     });
   }
 }
