@@ -25,5 +25,12 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
+  },
+  "typedocOptions": {
+    "out": "docs",
+    "entryPoints": [
+      "src/app/description-page/description-page.component.ts",
+      "src/app/welcome-page/welcome-page.component.ts"
+    ]
   }
 }
