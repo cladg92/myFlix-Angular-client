@@ -19,7 +19,7 @@
         ><button mat-button color="primary">Genre</button
         ><button mat-button color="primary">Director</button>
         <button mat-button color="primary">Synopsis</button>
-        <button *ngIf="isFav(movie._id)" (click)="removeFavorites(movie._id)">
+        <button (click)="removeFavorites(movie._id)">
           <mat-icon>remove_circle_outline</mat-icon>
         </button>
       </mat-card-actions>
