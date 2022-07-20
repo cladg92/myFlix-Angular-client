@@ -14,6 +14,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class ProfilePageComponent implements OnInit {
   favMovies: any[] = [];
+  favMoviesIDs: any[] = [];
   username: any;
   email: any;
   birthday: any;
@@ -30,6 +31,7 @@ export class ProfilePageComponent implements OnInit {
   getUserInfo(): void {
     this.fetchApiData.getUser().subscribe((resp: any) => {
       this.favMovies = resp.FavoriteMovies;
+      this.favMoviesIDs = this.favMovies.map((m) => m._id);
       this.username = resp.Username;
       this.email = resp.Email;
       this.birthday = resp.BirthDate;
@@ -37,11 +39,24 @@ export class ProfilePageComponent implements OnInit {
     });
   }
 
+  // create function to check if a movie is favorite
+  isFav(id: string): boolean {
+    return this.favMoviesIDs.includes(id);
+  }
+
   // create function to get update dialog
   openUpdateDialog(): void {
     this.dialog.open(UpdatePageComponent, {
       // Assigning the dialog a width
       width: '500px',
+    });
+  }
+
+  // create function to remove from favorites
+  removeFavorites(movieID: string): void {
+    this.fetchApiData.deleteFavMovies(movieID).subscribe((resp: any) => {
+      console.log(resp);
+      this.ngOnInit();
     });
   }
 }

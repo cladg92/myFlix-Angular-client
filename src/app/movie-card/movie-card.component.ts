@@ -18,6 +18,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class MovieCardComponent implements OnInit {
   movies: any[] = [];
+  favMoviesIDs: any[] = [];
   constructor(
     public fetchApiData: FetchApiDataService,
     public router: Router,
@@ -27,6 +28,7 @@ export class MovieCardComponent implements OnInit {
   // runs when component is initialized(mounted)
   ngOnInit(): void {
     this.getMovies();
+    this.getFavMoviesIDs();
   }
 
   // create function to get all movies
@@ -36,6 +38,22 @@ export class MovieCardComponent implements OnInit {
       console.log(this.movies);
       return this.movies;
     });
+  }
+
+  // create function to get favorite movies IDs
+  getFavMoviesIDs(): void {
+    this.fetchApiData.getUser().subscribe((resp: any) => {
+      this.favMoviesIDs = resp.FavoriteMovies.map(
+        (m: { _id: string }) => m._id
+      );
+      console.log(this.favMoviesIDs);
+      return this.favMoviesIDs;
+    });
+  }
+
+  // create function to check if a movie is favorite
+  isFav(id: string): boolean {
+    return this.favMoviesIDs.includes(id);
   }
 
   // create function to redirect to profile page
@@ -83,6 +101,15 @@ export class MovieCardComponent implements OnInit {
   addFavorites(movieID: string): void {
     this.fetchApiData.addFavMovies(movieID).subscribe((resp: any) => {
       console.log(resp);
+      this.ngOnInit();
+    });
+  }
+
+  // create function to remove from favorites
+  removeFavorites(movieID: string): void {
+    this.fetchApiData.deleteFavMovies(movieID).subscribe((resp: any) => {
+      console.log(resp);
+      this.ngOnInit();
     });
   }
 }
