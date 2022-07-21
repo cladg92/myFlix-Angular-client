@@ -23,7 +23,9 @@ export class UpdatePageComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  // create function to update user info
+  /**
+   * Sends input to the backend to update user's data
+   */
   updateUserInfo(): void {
     this.fetchApiData.updateUser(this.userData).subscribe(
       (result) => {

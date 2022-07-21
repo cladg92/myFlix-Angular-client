@@ -25,13 +25,18 @@ export class MovieCardComponent implements OnInit {
     public dialog: MatDialog
   ) {}
 
-  // runs when component is initialized(mounted)
+  /**
+   * Runs getMovies and getFavMoviesIDs methods when the component is initialized
+   */
   ngOnInit(): void {
     this.getMovies();
     this.getFavMoviesIDs();
   }
 
-  // create function to get all movies
+  /**
+   * Gets list of all movies from the backend
+   * @returns array of movies objects
+   */
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -40,7 +45,10 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
-  // create function to get favorite movies IDs
+  /**
+   * Gets list of all favorite movies from the backend
+   * @returns array of favorite movies IDs
+   */
   getFavMoviesIDs(): void {
     this.fetchApiData.getUser().subscribe((resp: any) => {
       this.favMoviesIDs = resp.FavoriteMovies.map(
@@ -51,17 +59,24 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
-  // create function to check if a movie is favorite
+  /**
+   * Checks whether a movie is already included in the favorites
+   * @returns boolean
+   */
   isFav(id: string): boolean {
     return this.favMoviesIDs.includes(id);
   }
 
-  // create function to redirect to profile page
+  /**
+   * Navigates to profile page
+   */
   getProfile(): void {
     this.router.navigate(['profile']);
   }
 
-  // create function to get genre dialog
+  /**
+   * Opens dialog to display the GenrePageComponent when the genre button is clicked
+   */
   openGenreDialog(name: string, description: string): void {
     this.dialog.open(GenrePageComponent, {
       data: {
@@ -73,7 +88,9 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
-  // create function to get director dialog
+  /**
+   * Opens dialog to display the DirectorPageComponent when the director button is clicked
+   */
   openDirectorDialog(name: string, bio: string): void {
     this.dialog.open(DirectorPageComponent, {
       data: {
@@ -85,7 +102,9 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
-  // create function to get description dialog
+  /**
+   * Opens dialog to display the DescriptionPageComponent when the synopsis button is clicked
+   */
   openDescriptionDialog(title: string, description: string): void {
     this.dialog.open(DescriptionPageComponent, {
       data: {
@@ -97,7 +116,9 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
-  // create function to add to favorites
+  /**
+   * Adds movie to the user's favorites by making a post request in the backend
+   */
   addFavorites(movieID: string): void {
     this.fetchApiData.addFavMovies(movieID).subscribe((resp: any) => {
       console.log(resp);
@@ -105,7 +126,9 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
-  // create function to remove from favorites
+  /**
+   * Removes movie from user's favorites by making a delete request to the backend
+   */
   removeFavorites(movieID: string): void {
     this.fetchApiData.deleteFavMovies(movieID).subscribe((resp: any) => {
       console.log(resp);

@@ -26,7 +26,10 @@ export class ProfilePageComponent implements OnInit {
     this.getUserInfo();
   }
 
-  // create function to get user info
+  /**
+   * Gets user info from the backend
+   * @returns username, email, birthday, favorite movies array
+   */
   getUserInfo(): void {
     this.fetchApiData.getUser().subscribe((resp: any) => {
       this.favMovies = resp.FavoriteMovies;
@@ -37,7 +40,9 @@ export class ProfilePageComponent implements OnInit {
     });
   }
 
-  // create function to get update dialog
+  /**
+   * Opens dialog to display the UpdatePageComponent when the update button is clicked
+   */
   openUpdateDialog(): void {
     this.dialog.open(UpdatePageComponent, {
       // Assigning the dialog a width
@@ -45,7 +50,9 @@ export class ProfilePageComponent implements OnInit {
     });
   }
 
-  // create function to remove from favorites
+  /**
+   * Removes movie from user's favorites by making a delete request to the backend
+   */
   removeFavorites(movieID: string): void {
     this.fetchApiData.deleteFavMovies(movieID).subscribe((resp: any) => {
       console.log(resp);
