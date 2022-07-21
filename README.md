@@ -8,7 +8,6 @@ Single-page application (SPA) built using Angular that fetches data from the mov
 
 Check it live [here](https://cladg92.github.io/myFlix-Angular-client/welcome).
 
-### Features
 
 ## Components and Features
 
