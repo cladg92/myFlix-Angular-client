@@ -10,21 +10,21 @@ Check it live [here](https://cladg92.github.io/myFlix-Angular-client/welcome).
 
 ### Features
 
-## Views and Features
+## Components and Features
 
-### Welcome view
+### Welcome component
 
 - Displays register and login buttons
 
-### Login view
+### Login component
 
 - Allows users to log in with a username and password
 
-### Registration view
+### Registration component
 
 - Allows new users to register (username, password, email, birthday)
 
-### Main view
+### Movie-card component
 
 - Returns a list of all movies to the user (each listed item with an image and title)
 - Allows to click on specific buttons for more details (i.e., genre, director, synopsis)
@@ -42,7 +42,7 @@ Check it live [here](https://cladg92.github.io/myFlix-Angular-client/welcome).
 
 - Returns the synopsis of the movie (name and synopsis)
 
-### Profile view
+### Profile component
 
 - Allows users to update their user info (username, password, email, date of birth)
 - Allows existing users to deregister
