@@ -58,6 +58,3 @@ Check it live [here](https://cladg92.github.io/myFlix-Angular-client/welcome).
 
 MEAN Stack (MongoDB, ExpressJS, Angular, NodeJS).
 
-## Author
-
-Clara Di Gregorio
