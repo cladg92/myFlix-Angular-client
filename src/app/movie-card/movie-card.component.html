@@ -1,12 +1,20 @@
 <mat-toolbar class="navbar">
-  <span>MyFlix</span>
+  <span class="brand-name">MyFlix</span>
   <button
     mat-raised-button
-    color="secondary"
-    style="margin-left: 10px"
+    color="primary"
+    style="margin-left: 40px"
     (click)="getProfile()"
   >
     Profile
+  </button>
+  <button
+    mat-raised-button
+    color="primary"
+    style="margin-left: 20px"
+    (click)="getProfile()"
+  >
+    Logout
   </button>
 </mat-toolbar>
 <div class="flex-container">
@@ -39,11 +47,21 @@
       >
         Synopsis
       </button>
-      <button *ngIf="!isFav(movie._id)" (click)="addFavorites(movie._id)">
-        <mat-icon>favorite_border</mat-icon>
+      <button
+        *ngIf="!isFav(movie._id)"
+        (click)="addFavorites(movie._id)"
+        class="button-add-fav"
+      >
+        <mat-icon class="icon-add-fav">favorite_border</mat-icon>
       </button>
-      <button *ngIf="isFav(movie._id)" (click)="removeFavorites(movie._id)">
-        <mat-icon>favorite</mat-icon>
+      <button
+        *ngIf="isFav(movie._id)"
+        (click)="removeFavorites(movie._id)"
+        class="button-remove-fav"
+      >
+        <mat-icon [ngStyle]="{ color: '#4496a3' }" class="icon-remove-fav"
+          >favorite</mat-icon
+        >
       </button>
     </mat-card-actions>
   </mat-card>

@@ -1,11 +1,35 @@
-<div class="user-info">
-  <div>Username: {{ username }}</div>
-  <div>Email: {{ email }}</div>
-  <div>Birthday: {{ birthday }}</div>
-</div>
-<button (click)="openUpdateDialog()">Update</button>
+<mat-toolbar class="navbar">
+  <span class="brand-name">MyFlix</span>
+  <button
+    (click)="backClicked()"
+    mat-raised-button
+    color="primary"
+    style="margin-left: 40px"
+  >
+    Home
+  </button>
+</mat-toolbar>
+<mat-card class="user-info">
+  <h1>Profile</h1>
+  <div class="user-info">
+    <div class="user-info-line">
+      <span class="user-info-label">Username:</span> {{ username }}
+    </div>
+    <div class="user-info-line">
+      <span class="user-info-label">Email:</span> {{ email }}
+    </div>
+  </div>
+  <button
+    mat-raised-button
+    color="primary"
+    style="margin-top: 15px"
+    (click)="openUpdateDialog()"
+  >
+    Update
+  </button></mat-card
+>
 <div class="favorite-movies">
-  <h1>My Favorite Movies</h1>
+  <h2>My Favorite Movies</h2>
   <div class="flex-container">
     <mat-card *ngFor="let movie of favMovies; let i = index" class="flex-item">
       <mat-card-header>
@@ -19,8 +43,8 @@
         ><button mat-button color="primary">Genre</button
         ><button mat-button color="primary">Director</button>
         <button mat-button color="primary">Synopsis</button>
-        <button (click)="removeFavorites(movie._id)">
-          <mat-icon>remove_circle_outline</mat-icon>
+        <button (click)="removeFavorites(movie._id)" class="button-remove-fav">
+          <mat-icon class="icon-remove-fav">remove_circle_outline</mat-icon>
         </button>
       </mat-card-actions>
     </mat-card>

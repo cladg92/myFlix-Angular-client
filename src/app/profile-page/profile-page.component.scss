@@ -1,3 +1,25 @@
+$backgroundColor: #4496a3;
+$backgroundColor2: #000;
+$text-color: #fff;
+
+h2 {
+  font-size: 30px;
+  font-weight: bold;
+  color: $backgroundColor2;
+  padding-top: 40px;
+  padding-left: 30px;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: bold;
+  color: $backgroundColor2;
+}
+
+div.favorite-movies {
+  background-color: $backgroundColor;
+}
+
 .flex-container {
   display: flex; /* or inline-flex */
   flex-wrap: wrap;
@@ -5,7 +27,53 @@
 }
 
 .flex-container > .flex-item {
-  margin: 5px;
+  margin: 20px;
+}
+
+.user-info .user-info-label {
+  font-weight: bold;
+}
+
+.user-info {
+  font-size: 20px;
+}
+
+.user-info-line {
+  padding: 4px;
+}
+
+mat-toolbar.mat-toolbar {
+  background-color: #000;
+  position: sticky;
+  top: 0; /* Sets the sticky toolbar to be on top */
+  z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+}
+
+mat-card.mat-card {
+  background-color: $backgroundColor2;
+  box-shadow: rgba(2, 2, 2, 0.4) 5px 5px, $backgroundColor 10px 10px,
+    rgba(2, 2, 2, 0.4) 15px 15px, $backgroundColor 20px 20px,
+    rgba(2, 2, 2, 0.4) -5px -5px, $backgroundColor -10px -10px,
+    rgba(2, 2, 2, 0.4) -15px -15px, $backgroundColor -20px -20px;
+}
+
+mat-card-title,
+mat-card-subtitle,
+span.brand-name {
+  color: $text-color;
+}
+
+button.button-remove-fav {
+  background-color: $backgroundColor2;
+}
+
+mat-icon.icon-remove-fav {
+  color: #fff;
+}
+
+mat-card.user-info {
+  background-color: $backgroundColor;
+  padding: 30px;
 }
 
 .poster {

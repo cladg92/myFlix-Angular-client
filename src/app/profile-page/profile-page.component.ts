@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
 import { UpdatePageComponent } from '../update-page/update-page.component';
-
 // This import brings in the API calls we created in 6.2
 import { FetchApiDataService } from '../fetch-api-data.service';
-
 import { MatDialog } from '@angular/material/dialog';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-profile-page',
@@ -19,11 +17,16 @@ export class ProfilePageComponent implements OnInit {
   birthday: any;
   constructor(
     public fetchApiData: FetchApiDataService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public location: Location
   ) {}
 
   ngOnInit(): void {
     this.getUserInfo();
+  }
+
+  backClicked(): void {
+    this.location.back();
   }
 
   /**

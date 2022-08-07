@@ -1,0 +1,42 @@
+$backgroundColor: #4496a3;
+$backgroundColor2: #000;
+$text-color: #fff;
+
+h1 {
+  font-size: 40px;
+  font-weight: bold;
+  color: $text-color;
+}
+
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+div.main-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 40px;
+  background-color: $backgroundColor;
+  min-height: 100vh;
+}
+
+mat-card.mat-card {
+  text-align: center;
+  vertical-align: bottom;
+  padding: 100px;
+  background-color: $backgroundColor2;
+  box-shadow: rgba(2, 2, 2, 0.4) 5px 5px, $backgroundColor 10px 10px,
+    rgba(2, 2, 2, 0.4) 15px 15px, $backgroundColor 20px 20px,
+    rgba(2, 2, 2, 0.4) 25px 25px, rgba(2, 2, 2, 0.4) -5px -5px,
+    $backgroundColor -10px -10px, rgba(2, 2, 2, 0.4) -15px -15px,
+    $backgroundColor -20px -20px, rgba(2, 2, 2, 0.4) -25px -25px;
+}
+
+button.mat-focus-indicator {
+  margin-top: 30px;
+}

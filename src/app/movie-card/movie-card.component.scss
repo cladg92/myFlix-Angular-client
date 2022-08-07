@@ -1,11 +1,46 @@
+$backgroundColor: #4496a3;
+$backgroundColor2: #000;
+$text-color: #fff;
+
 .flex-container {
   display: flex; /* or inline-flex */
   flex-wrap: wrap;
   justify-content: center;
+  background-color: $backgroundColor;
 }
 
 .flex-container > .flex-item {
-  margin: 5px;
+  margin: 20px;
+}
+
+mat-toolbar.mat-toolbar {
+  background-color: #000;
+  position: sticky;
+  top: 0; /* Sets the sticky toolbar to be on top */
+  z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+}
+
+mat-card.mat-card {
+  background-color: $backgroundColor2;
+  box-shadow: rgba(2, 2, 2, 0.4) 5px 5px, $backgroundColor 10px 10px,
+    rgba(2, 2, 2, 0.4) 15px 15px, $backgroundColor 20px 20px,
+    rgba(2, 2, 2, 0.4) -5px -5px, $backgroundColor -10px -10px,
+    rgba(2, 2, 2, 0.4) -15px -15px, $backgroundColor -20px -20px;
+}
+
+mat-card-title,
+mat-card-subtitle,
+span.brand-name {
+  color: $text-color;
+}
+
+button.button-add-fav,
+button.button-remove-fav {
+  background-color: $backgroundColor2;
+}
+
+mat-icon.icon-add-fav {
+  color: #fff;
 }
 
 .poster {
