@@ -1,27 +1,60 @@
-# MyFlixAngularClient
+# MyFlix-Angular-client
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.5.
+## Description
 
-## Development server
+This project was part of the [Career Foundry Full Stack Web Development course](https://careerfoundry.com/en/courses/become-a-web-developer/).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Single-page application (SPA) built using Angular that fetches data from the movie API (i.e., [myflixapi92](https://myflixapi92.herokuapp.com/documentation/)).
 
-## Code scaffolding
+Check it live [here](https://cladg92.github.io/myFlix-Angular-client/welcome).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Components and Features
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Welcome component
 
-## Running unit tests
+- Displays register and login buttons
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Login component
 
-## Running end-to-end tests
+- Allows users to log in with a username and password
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Registration component
 
-## Further help
+- Allows new users to register (username, password, email, birthday)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Movie-card component
+
+- Returns a list of all movies to the user (each listed item with an image and title)
+- Allows to click on specific buttons for more details (i.e., genre, director, synopsis)
+- Allows users to add a movie to their list of favorites
+
+### Genre dialog
+
+- Returns data about a genre (name and description)
+
+### Director dialog
+
+- Returns data about a director (name and bio)
+
+### Synopsis dialog
+
+- Returns the synopsis of the movie (name and synopsis)
+
+### Profile component
+
+- Allows users to update their user info (username, password, email, date of birth)
+- Allows existing users to deregister
+- Displays favorite movies
+- Allows users to remove a movie from their list of favorites.
+
+## Set up
+
+- Clone the repository running `git clone https://github.com/cladg92/myFlix-Angular-client.git` in the terminal.
+- Head to the project folder and install dependencies with `npm install`.
+- Run `ng serve` to build and start the application.
+
+## Technologies
+
+MEAN Stack (MongoDB, ExpressJS, Angular, NodeJS).
+
